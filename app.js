@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   revealOnScroll(); // Trigger once on load
 
   // Counter Animation
-  const stats = document.querySelectorAll('.stat-number');
+  const stats = document.querySelectorAll('.stat-number[data-target]');
   
   const runCounter = (el) => {
     const target = +el.getAttribute('data-target');
@@ -76,15 +76,21 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   let statsAnimated = false;
-  window.addEventListener('scroll', () => {
+  const checkStatsAnimation = () => {
     if (!statsAnimated && stats.length > 0) {
-      const statsTop = document.querySelector('.hero-stats').getBoundingClientRect().top;
-      if (statsTop < window.innerHeight) {
-        stats.forEach(runCounter);
-        statsAnimated = true;
+      const heroStats = document.querySelector('.hero-stats');
+      if (heroStats) {
+        const statsTop = heroStats.getBoundingClientRect().top;
+        if (statsTop < window.innerHeight) {
+          stats.forEach(runCounter);
+          statsAnimated = true;
+        }
       }
     }
-  });
+  };
+
+  window.addEventListener('scroll', checkStatsAnimation);
+  setTimeout(checkStatsAnimation, 500); // Trigger once on load
 
   // Preview Chart (Landing Page)
   const ctxPreview = document.getElementById('previewChart');

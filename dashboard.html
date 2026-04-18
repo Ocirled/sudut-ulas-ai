@@ -1,301 +1,296 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard | UlasPintar AI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <!-- WordCloud.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
-</head>
-<body class="dashboard-layout">
-  
-  <!-- Sidebar -->
-  <aside class="dash-sidebar">
-    <div class="dash-logo">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-icon">✦</span>
-        <span class="logo-text">Ulas<span class="logo-accent">Pintar</span></span>
-      </a>
-    </div>
-    <nav class="dash-nav">
-      <div class="dash-nav-item active" data-target="panel-upload">
-        <span>📁</span> Data Integrator
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | SudutUlas AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- WordCloud.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
+  </head>
+  <body class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="dash-sidebar">
+      <div class="dash-logo">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">✦</span>
+          <span class="logo-text">Sudut<span class="logo-accent">Ulas</span></span>
+        </a>
       </div>
-      <div class="dash-nav-item" data-target="panel-dashboard" id="navDashboard" style="display:none;">
-        <span>📊</span> ABSA Dashboard
-      </div>
-      <div class="dash-nav-item" data-target="panel-wordcloud" id="navWordcloud" style="display:none;">
-        <span>☁️</span> Word Cloud & Trends
-      </div>
-      <div class="dash-nav-item" data-target="panel-benchmark" id="navBenchmark" style="display:none;">
-        <span>🏆</span> Benchmarking
-      </div>
-      <div class="dash-nav-item" data-target="panel-report" id="navReport" style="display:none;">
-        <span>📋</span> AI Quality Report
-      </div>
-    </nav>
-  </aside>
+      <nav class="dash-nav">
+        <div class="dash-nav-item active" data-target="panel-upload"><span>📁</span> Data Integrator</div>
+        <div class="dash-nav-item" data-target="panel-dashboard" id="navDashboard" style="display: none"><span>📊</span> ABSA Dashboard</div>
+        <div class="dash-nav-item" data-target="panel-wordcloud" id="navWordcloud" style="display: none"><span>☁️</span> Word Cloud & Trends</div>
+        <div class="dash-nav-item" data-target="panel-benchmark" id="navBenchmark" style="display: none"><span>🏆</span> Benchmarking</div>
+        <div class="dash-nav-item" data-target="panel-report" id="navReport" style="display: none"><span>📋</span> AI Quality Report</div>
+      </nav>
+    </aside>
 
-  <!-- Main Content -->
-  <main class="dash-main">
-    <header class="dash-header">
-      <div class="dash-title">
-        <h2 style="font-size: 1.2rem; font-family: var(--font-sans);">Toko Sambal Bu Sari</h2>
-      </div>
-      <div class="dash-user">
-        <span style="color: var(--color-text-muted); font-size: 0.9rem;">Azure Free Tier F1</span>
-        <div class="user-avatar">BS</div>
-      </div>
-    </header>
-
-    <div class="dash-content">
-      
-      <!-- Panel 1: Upload -->
-      <section id="panel-upload" class="panel active">
-        <div class="panel-header">
-          <div>
-            <h1 class="panel-title">Smart Data Integrator</h1>
-            <p class="panel-subtitle">Unggah ekspor ulasan dari Seller Center (Tokopedia/Shopee/Lazada)</p>
-          </div>
+    <!-- Main Content -->
+    <main class="dash-main">
+      <header class="dash-header">
+        <div class="dash-title">
+          <h2 style="font-size: 1.2rem; font-family: var(--font-sans)">Toko Sambal Bu Sari</h2>
         </div>
-        
-        <div class="upload-area" id="uploadArea">
-          <div class="upload-icon">📤</div>
-          <h3>Drag & Drop file CSV/Excel di sini</h3>
-          <p style="color: var(--color-text-muted); margin-top: 0.5rem; margin-bottom: 1.5rem;">atau klik untuk memilih file</p>
-          <button class="btn btn-primary" id="btnUploadSim">Pilih File Simulasi</button>
+        <div class="dash-user">
+          <div class="user-avatar">BS</div>
         </div>
+      </header>
 
-        <div id="processingState" style="display: none; text-align: center; padding: 3rem;">
-          <div style="font-size: 3rem; margin-bottom: 1rem; animation: spin 2s linear infinite;">⚙️</div>
-          <h3>Azure AI Sedang Memproses...</h3>
-          <p style="color: var(--color-text-muted);">Melakukan cleaning, preprocessing, dan aspect-based sentiment analysis pada 1.247 ulasan.</p>
-          
-          <div style="width: 100%; max-width: 400px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; margin: 2rem auto; overflow: hidden;">
-            <div id="progressBar" style="width: 0%; height: 100%; background: var(--color-primary); transition: width 0.5s;"></div>
-          </div>
-          <p id="progressText">0%</p>
-        </div>
-        <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
-      </section>
-
-      <!-- Panel 2: Dashboard -->
-      <section id="panel-dashboard" class="panel">
-        <div class="panel-header">
-          <div>
-            <h1 class="panel-title">Aspect-Based Sentiment Dashboard</h1>
-            <p class="panel-subtitle">Ringkasan sentimen per aspek untuk 1.247 ulasan (Jan - Apr 2026)</p>
-          </div>
-          <div>
-            <select style="background: var(--color-surface); color: white; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px;">
-              <option>Semua Platform</option>
-              <option>Tokopedia</option>
-              <option>Shopee</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="dash-grid-4">
-          <!-- Aspek 1: Produk -->
-          <div class="dash-card" style="border-top: 3px solid var(--color-success);">
-            <div class="card-title">Produk & Rasa <span style="font-size: 1.5rem;">🍲</span></div>
-            <div class="chart-container small">
-              <canvas id="chartProduk"></canvas>
-            </div>
-            <div style="text-align: center; margin-top: 1rem;">
-              <span class="tag" style="background: var(--color-success-bg); color: var(--color-success);">Dominan Positif</span>
-            </div>
-          </div>
-          
-          <!-- Aspek 2: Pelayanan -->
-          <div class="dash-card" style="border-top: 3px solid var(--color-info);">
-            <div class="card-title">Pelayanan <span style="font-size: 1.5rem;">👨‍💻</span></div>
-            <div class="chart-container small">
-              <canvas id="chartPelayanan"></canvas>
-            </div>
-            <div style="text-align: center; margin-top: 1rem;">
-              <span class="tag" style="background: var(--color-info-bg); color: var(--color-info);">Sangat Baik</span>
+      <div class="dash-content">
+        <!-- Panel 1: Upload -->
+        <section id="panel-upload" class="panel active">
+          <div class="panel-header">
+            <div>
+              <h1 class="panel-title">Smart Data Integrator</h1>
+              <p class="panel-subtitle">Unggah ekspor ulasan dari Seller Center (Tokopedia/Shopee/Lazada)</p>
             </div>
           </div>
 
-          <!-- Aspek 3: Pengemasan -->
-          <div class="dash-card" style="border-top: 3px solid var(--color-danger);">
-            <div class="card-title">Pengemasan <span style="font-size: 1.5rem;">📦</span></div>
-            <div class="chart-container small">
-              <canvas id="chartPengemasan"></canvas>
+          <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📤</div>
+            <h3>Drag & Drop file CSV/Excel di sini</h3>
+            <p style="color: var(--color-text-muted); margin-top: 0.5rem; margin-bottom: 1.5rem">atau klik untuk memilih file</p>
+            <button class="btn btn-primary" id="btnUploadSim">Pilih File Simulasi</button>
+          </div>
+
+          <div id="processingState" style="display: none; text-align: center; padding: 3rem">
+            <div style="font-size: 3rem; margin-bottom: 1rem; animation: spin 2s linear infinite">⚙️</div>
+            <h3>Azure AI Sedang Memproses...</h3>
+            <p style="color: var(--color-text-muted)">Melakukan cleaning, preprocessing, dan aspect-based sentiment analysis pada 1.247 ulasan.</p>
+
+            <div style="width: 100%; max-width: 400px; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; margin: 2rem auto; overflow: hidden">
+              <div id="progressBar" style="width: 0%; height: 100%; background: var(--color-primary); transition: width 0.5s"></div>
             </div>
-            <div style="text-align: center; margin-top: 1rem;">
-              <span class="tag" style="background: var(--color-danger-bg); color: var(--color-danger);">Perlu Perbaikan</span>
+            <p id="progressText">0%</p>
+          </div>
+          <style>
+            @keyframes spin {
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+          </style>
+        </section>
+
+        <!-- Panel 2: Dashboard -->
+        <section id="panel-dashboard" class="panel">
+          <div class="panel-header">
+            <div>
+              <h1 class="panel-title">Aspect-Based Sentiment Dashboard</h1>
+              <p class="panel-subtitle">Ringkasan sentimen per aspek untuk 1.247 ulasan (Jan - Apr 2026)</p>
+            </div>
+            <div>
+              <select style="background: var(--color-surface); color: white; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px">
+                <option>Semua Platform</option>
+                <option>Tokopedia</option>
+                <option>Shopee</option>
+              </select>
             </div>
           </div>
 
-          <!-- Aspek 4: Logistik -->
-          <div class="dash-card" style="border-top: 3px solid var(--color-warning);">
-            <div class="card-title">Logistik <span style="font-size: 1.5rem;">🚚</span></div>
-            <div class="chart-container small">
-              <canvas id="chartLogistik"></canvas>
+          <div class="dash-grid-4">
+            <!-- Aspek 1: Produk -->
+            <div class="dash-card" style="border-top: 3px solid var(--color-success)">
+              <div class="card-title">Produk & Rasa <span style="font-size: 1.5rem">🍲</span></div>
+              <div class="chart-container small">
+                <canvas id="chartProduk"></canvas>
+              </div>
+              <div style="text-align: center; margin-top: 1rem">
+                <span class="tag" style="background: var(--color-success-bg); color: var(--color-success)">Dominan Positif</span>
+              </div>
             </div>
-            <div style="text-align: center; margin-top: 1rem;">
-              <span class="tag" style="background: var(--color-warning-bg); color: var(--color-warning);">Campuran</span>
+
+            <!-- Aspek 2: Pelayanan -->
+            <div class="dash-card" style="border-top: 3px solid var(--color-info)">
+              <div class="card-title">Pelayanan <span style="font-size: 1.5rem">👨‍💻</span></div>
+              <div class="chart-container small">
+                <canvas id="chartPelayanan"></canvas>
+              </div>
+              <div style="text-align: center; margin-top: 1rem">
+                <span class="tag" style="background: var(--color-info-bg); color: var(--color-info)">Sangat Baik</span>
+              </div>
+            </div>
+
+            <!-- Aspek 3: Pengemasan -->
+            <div class="dash-card" style="border-top: 3px solid var(--color-danger)">
+              <div class="card-title">Pengemasan <span style="font-size: 1.5rem">📦</span></div>
+              <div class="chart-container small">
+                <canvas id="chartPengemasan"></canvas>
+              </div>
+              <div style="text-align: center; margin-top: 1rem">
+                <span class="tag" style="background: var(--color-danger-bg); color: var(--color-danger)">Perlu Perbaikan</span>
+              </div>
+            </div>
+
+            <!-- Aspek 4: Logistik -->
+            <div class="dash-card" style="border-top: 3px solid var(--color-warning)">
+              <div class="card-title">Logistik <span style="font-size: 1.5rem">🚚</span></div>
+              <div class="chart-container small">
+                <canvas id="chartLogistik"></canvas>
+              </div>
+              <div style="text-align: center; margin-top: 1rem">
+                <span class="tag" style="background: var(--color-warning-bg); color: var(--color-warning)">Campuran</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="dash-card">
-          <div class="card-title">Distribusi Sentimen per Aspek Keseluruhan</div>
-          <div class="chart-container" style="height: 350px;">
-            <canvas id="chartBarDistribusi"></canvas>
-          </div>
-        </div>
-      </section>
-
-      <!-- Panel 3: Word Cloud -->
-      <section id="panel-wordcloud" class="panel">
-        <div class="panel-header">
-          <div>
-            <h1 class="panel-title">Word Cloud & Trend Analysis</h1>
-            <p class="panel-subtitle">Ekstraksi kata kunci dari ulasan positif dan negatif</p>
-          </div>
-        </div>
-
-        <div class="dash-grid-2">
           <div class="dash-card">
-            <div class="card-title" style="color: var(--color-success);">Kata Kunci Positif 😃</div>
-            <div class="word-cloud-container" id="wcPositif"></div>
+            <div class="card-title">Distribusi Sentimen per Aspek Keseluruhan</div>
+            <div class="chart-container" style="height: 350px">
+              <canvas id="chartBarDistribusi"></canvas>
+            </div>
           </div>
+        </section>
+
+        <!-- Panel 3: Word Cloud -->
+        <section id="panel-wordcloud" class="panel">
+          <div class="panel-header">
+            <div>
+              <h1 class="panel-title">Word Cloud & Trend Analysis</h1>
+              <p class="panel-subtitle">Ekstraksi kata kunci dari ulasan positif dan negatif</p>
+            </div>
+          </div>
+
+          <div class="dash-grid-2">
+            <div class="dash-card">
+              <div class="card-title" style="color: var(--color-success)">Kata Kunci Positif 😃</div>
+              <div class="word-cloud-container" id="wcPositif"></div>
+            </div>
+            <div class="dash-card">
+              <div class="card-title" style="color: var(--color-danger)">Kata Kunci Negatif 😟</div>
+              <div class="word-cloud-container" id="wcNegatif"></div>
+            </div>
+          </div>
+
           <div class="dash-card">
-            <div class="card-title" style="color: var(--color-danger);">Kata Kunci Negatif 😟</div>
-            <div class="word-cloud-container" id="wcNegatif"></div>
-          </div>
-        </div>
-
-        <div class="dash-card">
-          <div class="card-title">Tren Sentimen Bulanan (Semua Aspek)</div>
-          <div class="chart-container">
-            <canvas id="chartTrend"></canvas>
-          </div>
-        </div>
-      </section>
-
-      <!-- Panel 4: Benchmark -->
-      <section id="panel-benchmark" class="panel">
-        <div class="panel-header">
-          <div>
-            <h1 class="panel-title">Competitor Benchmarking</h1>
-            <p class="panel-subtitle">Perbandingan toko Anda vs Rata-rata Industri (Kategori: Makanan Kemasan)</p>
-          </div>
-        </div>
-
-        <div class="dash-grid-2">
-          <div class="dash-card">
-            <div class="card-title">Analisis Radar</div>
-            <div class="chart-container" style="height: 400px;">
-              <canvas id="chartRadar"></canvas>
+            <div class="card-title">Tren Sentimen Bulanan (Semua Aspek)</div>
+            <div class="chart-container">
+              <canvas id="chartTrend"></canvas>
             </div>
           </div>
-          
-          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <div class="dash-card" style="flex: 1;">
-              <div class="card-title">Kekuatan Utama (Competitive Advantage)</div>
-              <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
-                  <span style="font-size: 2rem; color: var(--color-success);">↑</span>
-                  <div>
-                    <h4 style="margin:0;">Pelayanan (+15% dari industri)</h4>
-                    <p style="font-size: 0.85rem; color: var(--color-text-muted); margin:0;">Admin responsif menjadi keunggulan utama toko Anda.</p>
-                  </div>
-                </li>
-                <li style="display: flex; align-items: center; gap: 1rem;">
-                  <span style="font-size: 2rem; color: var(--color-success);">↑</span>
-                  <div>
-                    <h4 style="margin:0;">Rasa Produk (+8% dari industri)</h4>
-                    <p style="font-size: 0.85rem; color: var(--color-text-muted); margin:0;">Konsistensi rasa sangat disukai pelanggan.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <div class="dash-card" style="flex: 1;">
-              <div class="card-title">Titik Lemah (Gap to Close)</div>
-              <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
-                  <span style="font-size: 2rem; color: var(--color-danger);">↓</span>
-                  <div>
-                    <h4 style="margin:0;">Pengemasan (-25% dari industri)</h4>
-                    <p style="font-size: 0.85rem; color: var(--color-text-muted); margin:0;">Tingkat kebocoran jauh lebih tinggi dibanding kompetitor.</p>
-                  </div>
-                </li>
-              </ul>
+        </section>
+
+        <!-- Panel 4: Benchmark -->
+        <section id="panel-benchmark" class="panel">
+          <div class="panel-header">
+            <div>
+              <h1 class="panel-title">Competitor Benchmarking</h1>
+              <p class="panel-subtitle">Perbandingan toko Anda vs Rata-rata Industri (Kategori: Makanan Kemasan)</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- Panel 5: AI Report -->
-      <section id="panel-report" class="panel">
-        <div class="panel-header">
-          <div>
-            <h1 class="panel-title">AI Quality Report</h1>
-            <p class="panel-subtitle">Actionable Insights yang dihasilkan oleh AI berdasarkan analisis data</p>
-          </div>
-          <button class="btn btn-ghost">Unduh PDF</button>
-        </div>
+          <div class="dash-grid-2">
+            <div class="dash-card">
+              <div class="card-title">Analisis Radar</div>
+              <div class="chart-container" style="height: 400px">
+                <canvas id="chartRadar"></canvas>
+              </div>
+            </div>
 
-        <div class="dash-card" style="margin-bottom: 2rem;">
-          <div class="card-title">Executive Summary</div>
-          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8;">
-            Secara keseluruhan toko memiliki rating baik, didorong oleh kualitas produk dan pelayanan admin. Namun, terdapat krisis pada aspek <strong style="color: white;">Pengemasan</strong> yang memicu komplain bocor, dan pola keterlambatan logistik yang spesifik terjadi di akhir pekan.
-          </p>
-        </div>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem">
+              <div class="dash-card" style="flex: 1">
+                <div class="card-title">Kekuatan Utama (Competitive Advantage)</div>
+                <ul style="list-style: none; padding: 0">
+                  <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem">
+                    <span style="font-size: 2rem; color: var(--color-success)">↑</span>
+                    <div>
+                      <h4 style="margin: 0">Pelayanan (+15% dari industri)</h4>
+                      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0">Admin responsif menjadi keunggulan utama toko Anda.</p>
+                    </div>
+                  </li>
+                  <li style="display: flex; align-items: center; gap: 1rem">
+                    <span style="font-size: 2rem; color: var(--color-success)">↑</span>
+                    <div>
+                      <h4 style="margin: 0">Rasa Produk (+8% dari industri)</h4>
+                      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0">Konsistensi rasa sangat disukai pelanggan.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
 
-        <h3 style="margin-bottom: 1.5rem;">Saran Perbaikan Prioritas</h3>
-
-        <div class="report-card critical">
-          <div class="report-icon">📦</div>
-          <div class="report-content" style="width: 100%;">
-            <h4>Ganti Jenis Tutup Botol atau Tambah Segel Plastik</h4>
-            <p style="color: var(--color-text-muted);">AI mendeteksi kata "bocor", "merembes", dan "tumpah" muncul pada 40% ulasan negatif terkait pengemasan. Masalah ini paling sering terjadi pada pengiriman luar kota.</p>
-            <div class="report-meta">
-              <span class="report-badge" style="color: var(--color-danger);">Severity: High</span>
-              <span class="report-badge">Aspek: Pengemasan</span>
-              <span class="report-badge">Dampak: Bintang 1-2</span>
+              <div class="dash-card" style="flex: 1">
+                <div class="card-title">Titik Lemah (Gap to Close)</div>
+                <ul style="list-style: none; padding: 0">
+                  <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem">
+                    <span style="font-size: 2rem; color: var(--color-danger)">↓</span>
+                    <div>
+                      <h4 style="margin: 0">Pengemasan (-25% dari industri)</h4>
+                      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0">Tingkat kebocoran jauh lebih tinggi dibanding kompetitor.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="report-card warning">
-          <div class="report-icon">🚚</div>
-          <div class="report-content" style="width: 100%;">
-            <h4>Evaluasi Kurir Pengiriman Hari Jumat</h4>
-            <p style="color: var(--color-text-muted);">Tren sentimen logistik turun drastis (60% negatif) setiap hari Jumat. Kata "nyangkut" dan "lama" sering muncul. Disarankan mengganti kurir default atau menonaktifkan jasa kirim tertentu jelang akhir pekan.</p>
-            <div class="report-meta">
-              <span class="report-badge" style="color: var(--color-warning);">Severity: Medium</span>
-              <span class="report-badge">Aspek: Logistik</span>
+        <!-- Panel 5: AI Report -->
+        <section id="panel-report" class="panel">
+          <div class="panel-header">
+            <div>
+              <h1 class="panel-title">AI Quality Report</h1>
+              <p class="panel-subtitle">Actionable Insights yang dihasilkan oleh AI berdasarkan analisis data</p>
+            </div>
+            <button class="btn btn-ghost">Unduh PDF</button>
+          </div>
+
+          <div class="dash-card" style="margin-bottom: 2rem">
+            <div class="card-title">Executive Summary</div>
+            <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8">
+              Secara keseluruhan toko memiliki rating baik, didorong oleh kualitas produk dan pelayanan admin. Namun, terdapat krisis pada aspek <strong style="color: white">Pengemasan</strong> yang memicu komplain bocor, dan pola
+              keterlambatan logistik yang spesifik terjadi di akhir pekan.
+            </p>
+          </div>
+
+          <h3 style="margin-bottom: 1.5rem">Saran Perbaikan Prioritas</h3>
+
+          <div class="report-card critical">
+            <div class="report-icon">📦</div>
+            <div class="report-content" style="width: 100%">
+              <h4>Ganti Jenis Tutup Botol atau Tambah Segel Plastik</h4>
+              <p style="color: var(--color-text-muted)">AI mendeteksi kata "bocor", "merembes", dan "tumpah" muncul pada 40% ulasan negatif terkait pengemasan. Masalah ini paling sering terjadi pada pengiriman luar kota.</p>
+              <div class="report-meta">
+                <span class="report-badge" style="color: var(--color-danger)">Severity: High</span>
+                <span class="report-badge">Aspek: Pengemasan</span>
+                <span class="report-badge">Dampak: Bintang 1-2</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="report-card success">
-          <div class="report-icon">🗣️</div>
-          <div class="report-content" style="width: 100%;">
-            <h4>Pertahankan SOP Respons Admin</h4>
-            <p style="color: var(--color-text-muted);">Aspek pelayanan mendapat 85% sentimen positif. Pelanggan sangat mengapresiasi balasan yang cepat dan solusi retur barang yang tidak berbelit. Jadikan ini kekuatan marketing toko.</p>
-            <div class="report-meta">
-              <span class="report-badge" style="color: var(--color-success);">Status: Excellent</span>
-              <span class="report-badge">Aspek: Pelayanan</span>
+          <div class="report-card warning">
+            <div class="report-icon">🚚</div>
+            <div class="report-content" style="width: 100%">
+              <h4>Evaluasi Kurir Pengiriman Hari Jumat</h4>
+              <p style="color: var(--color-text-muted)">
+                Tren sentimen logistik turun drastis (60% negatif) setiap hari Jumat. Kata "nyangkut" dan "lama" sering muncul. Disarankan mengganti kurir default atau menonaktifkan jasa kirim tertentu jelang akhir pekan.
+              </p>
+              <div class="report-meta">
+                <span class="report-badge" style="color: var(--color-warning)">Severity: Medium</span>
+                <span class="report-badge">Aspek: Logistik</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-    </div>
-  </main>
+          <div class="report-card success">
+            <div class="report-icon">🗣️</div>
+            <div class="report-content" style="width: 100%">
+              <h4>Pertahankan SOP Respons Admin</h4>
+              <p style="color: var(--color-text-muted)">Aspek pelayanan mendapat 85% sentimen positif. Pelanggan sangat mengapresiasi balasan yang cepat dan solusi retur barang yang tidak berbelit. Jadikan ini kekuatan marketing toko.</p>
+              <div class="report-meta">
+                <span class="report-badge" style="color: var(--color-success)">Status: Excellent</span>
+                <span class="report-badge">Aspek: Pelayanan</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="app.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

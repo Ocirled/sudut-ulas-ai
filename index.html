@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SudutUlas AI – Platform Analitik Ulasan Berbasis AI untuk UMKM Indonesia. Ubah ribuan ulasan menjadi panduan perbaikan bisnis yang konkret dengan teknologi Aspect-Based Sentiment Analysis." />
+    <title>SudutUlas AI – Analitik Ulasan Cerdas untuk UMKM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">✦</span>
+          <span class="logo-text">Sudut<span class="logo-accent">Ulas</span> AI</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#fitur">Fitur</a></li>
+          <li><a href="#cara-kerja">Cara Kerja</a></li>
+          <li><a href="#testimonial">Testimoni</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="dashboard.html" class="btn btn-primary">Mulai Gratis</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <canvas id="particleCanvas"></canvas>
+      <div class="hero-content container">
+        <h1 class="hero-title animate-fade-in-up">
+          Ubah Ribuan Ulasan<br />
+          Menjadi <span class="text-gradient">Keunggulan Bisnis</span>
+        </h1>
+        <p class="hero-subtitle animate-fade-in-up delay-1">Platform analitik ulasan berbasis AI pertama untuk UMKM Indonesia. Temukan masalah tersembunyi, perbaiki kualitas produk, dan kalahkan kompetitor – hanya dalam beberapa klik.</p>
+        <div class="hero-actions animate-fade-in-up delay-2">
+          <a href="dashboard.html" class="btn btn-primary btn-lg" id="ctaHero">
+            <span>Coba Dashboard Gratis</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+          </a>
+        </div>
+        <div class="hero-stats animate-fade-in-up delay-3">
+          <div class="stat-item">
+            <span class="stat-number" data-target="1247">0</span><span class="stat-number">+</span>
+            <span class="stat-label">UMKM Aktif</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="98">0</span><span class="stat-number">%</span>
+            <span class="stat-label">Akurasi Sentimen</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="4">0</span><span class="stat-number">x</span>
+            <span class="stat-label">Lebih Cepat dari Manual</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="problem-section" id="problem">
+      <div class="container">
+        <div class="section-label">Masalah yang Kami Selesaikan</div>
+        <h2 class="section-title">UMKM Tenggelam dalam <span class="text-gradient">Lautan Ulasan</span></h2>
+        <div class="problem-grid">
+          <div class="problem-card reveal">
+            <div class="problem-icon">😵</div>
+            <h3>Ratusan Ulasan, Nol Insight</h3>
+            <p>Rata-rata toko UMKM menerima 500+ ulasan per bulan. Membacanya satu per satu menghabiskan 20+ jam kerja.</p>
+          </div>
+          <div class="problem-card reveal delay-1">
+            <div class="problem-icon">⭐</div>
+            <h3>Rating Bintang Tidak Cukup</h3>
+            <p>Rating 4.8 bintang bisa menyembunyikan 40% ulasan negatif tentang pengemasan yang bocor atau pengiriman yang lambat.</p>
+          </div>
+          <div class="problem-card reveal delay-2">
+            <div class="problem-icon">📉</div>
+            <h3>Kehilangan Pelanggan Tanpa Tahu Sebabnya</h3>
+            <p>Tanpa analitik mendalam, UMKM tidak bisa mendeteksi pola masalah yang berulang sebelum berdampak pada penjualan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section" id="fitur">
+      <div class="container">
+        <div class="section-label">Fitur Unggulan</div>
+        <h2 class="section-title">Semua yang Anda Butuhkan untuk<br /><span class="text-gradient">Bisnis yang Lebih Cerdas</span></h2>
+        <div class="features-grid">
+          <div class="feature-card feature-large reveal">
+            <div class="feature-icon-bg">📁</div>
+            <div class="feature-number">01</div>
+            <h3>Smart Data Integrator</h3>
+            <p>Upload file CSV/Excel ekspor dari Tokopedia, Shopee, atau Lazada. Sistem otomatis melakukan data cleaning dan preprocessing teks Bahasa Indonesia termasuk penanganan slang dan singkatan.</p>
+            <div class="feature-tags">
+              <span class="tag">CSV/Excel</span>
+              <span class="tag">Auto Cleaning</span>
+              <span class="tag">Bahasa Indonesia</span>
+            </div>
+          </div>
+
+          <div class="feature-card reveal delay-1">
+            <div class="feature-icon-bg">🎯</div>
+            <div class="feature-number">02</div>
+            <h3>Aspect-Based Sentiment Analysis</h3>
+            <p>Analisis mendalam per aspek: Produk, Pelayanan, Pengemasan, dan Logistik dengan akurasi hingga 98%.</p>
+            <div class="feature-tags">
+              <span class="tag">ABSA</span>
+              <span class="tag">4 Aspek</span>
+            </div>
+          </div>
+
+          <div class="feature-card reveal delay-2">
+            <div class="feature-icon-bg">🤖</div>
+            <div class="feature-number">03</div>
+            <h3>AI Quality Report</h3>
+            <p>Laporan saran bisnis yang konkret dan actionable. Bukan sekadar angka, tapi panduan nyata untuk perbaikan.</p>
+            <div class="feature-tags">
+              <span class="tag">Actionable</span>
+              <span class="tag">Azure AI</span>
+            </div>
+          </div>
+
+          <div class="feature-card reveal delay-1">
+            <div class="feature-icon-bg">🏆</div>
+            <div class="feature-number">04</div>
+            <h3>Competitor Benchmarking</h3>
+            <p>Bandingkan performa sentimen toko Anda dengan rata-rata industri. Ketahui posisi daya saing Anda sekarang.</p>
+            <div class="feature-tags">
+              <span class="tag">Benchmark</span>
+              <span class="tag">Industri</span>
+            </div>
+          </div>
+
+          <div class="feature-card feature-large reveal delay-2">
+            <div class="feature-icon-bg">☁️</div>
+            <div class="feature-number">05</div>
+            <h3>Word Cloud & Trend Analysis</h3>
+            <p>Visualisasi kata kunci paling sering muncul dalam ulasan positif dan negatif. Pantau tren sentimen dari bulan ke bulan dan deteksi lonjakan masalah sebelum berkembang menjadi krisis.</p>
+            <div class="feature-tags">
+              <span class="tag">Word Cloud</span>
+              <span class="tag">Trend</span>
+              <span class="tag">Time Series</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="cara-kerja">
+      <div class="container">
+        <div class="section-label">Cara Kerja</div>
+        <h2 class="section-title">Dari Upload hingga <span class="text-gradient">Insight Bisnis</span><br />dalam 4 Langkah</h2>
+        <div class="steps-container">
+          <div class="step-line"></div>
+          <div class="step reveal">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-icon">📤</div>
+              <h3>Upload Data Ulasan</h3>
+              <p>Unduh data ulasan dari seller center marketplace Anda (Tokopedia, Shopee, Lazada), lalu upload dalam format CSV atau Excel ke platform SudutUlas AI.</p>
+            </div>
+          </div>
+          <div class="step reveal delay-1">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-icon">⚙️</div>
+              <h3>Proses AI Otomatis</h3>
+              <p>Azure AI Language menganalisis setiap kalimat ulasan, mengidentifikasi aspek yang disebutkan, dan mengklasifikasikan sentimen dalam hitungan detik.</p>
+            </div>
+          </div>
+          <div class="step reveal delay-2">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-icon">📊</div>
+              <h3>Eksplorasi Dashboard</h3>
+              <p>Lihat grafik interaktif, word cloud, dan benchmarking. Temukan pola tersembunyi seperti lonjakan ulasan negatif di hari tertentu.</p>
+            </div>
+          </div>
+          <div class="step reveal delay-3">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <div class="step-icon">✅</div>
+              <h3>Ambil Keputusan Berbasis Data</h3>
+              <p>Baca Quality Report AI dan implementasikan rekomendasi konkret. Monitor progres di bulan berikutnya dengan upload data baru.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial-section" id="testimonial">
+      <div class="container">
+        <div class="section-label">Testimoni</div>
+        <h2 class="section-title">Dipercaya oleh <span class="text-gradient">UMKM Indonesia</span></h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Awalnya saya kira packaging saya sudah oke karena rating 4.9. Ternyata setelah pakai SudutUlas, 35% ulasan negatifnya tentang sambal yang bocor."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">BS</div>
+              <div>
+                <div class="testi-name">Bu Sari</div>
+                <div class="testi-role">Pemilik Toko Sambal Bu Sari, Surabaya</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal delay-1">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Dashboard-nya sangat mudah dipakai. Dalam 10 menit saya sudah tahu kalau pelanggan suka rasa tapi tidak suka dengan waktu pengiriman hari Jumat. Langsung ganti kurir!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">PA</div>
+              <div>
+                <div class="testi-name">Pak Ahmad</div>
+                <div class="testi-role">Owner Kedai Kopi Nusantara, Bandung</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal delay-2">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Fitur benchmarking-nya sangat berguna. Saya jadi tahu bahwa aspek 'Pelayanan' saya 20% di atas rata-rata industri. Ini jadi nilai jual yang saya highlight di semua iklan!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">RW</div>
+              <div>
+                <div class="testi-name">Rini Wahyuni</div>
+                <div class="testi-role">Founder Batik Canting Modern, Solo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BOTTOM -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-glow"></div>
+          <h2>Siap Mengubah Ulasan menjadi<br /><span class="text-gradient">Keputusan Bisnis?</span></h2>
+          <p>Bergabunglah dengan 1.247+ UMKM yang sudah menggunakan SudutUlas AI untuk tumbuh lebih cepat.</p>
+          <a href="dashboard.html" class="btn btn-primary btn-lg" id="ctaBottom">Mulai Analisis Sekarang — Gratis</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="nav-logo">
+              <span class="logo-icon">✦</span>
+              <span class="logo-text">Ulas<span class="logo-accent">Pintar</span> AI</span>
+            </div>
+            <p>Platform analitik ulasan berbasis AI pertama untuk UMKM Indonesia. Didukung Microsoft Azure.</p>
+            <div class="footer-badges">
+              <span class="badge-tech">Azure AI</span>
+              <span class="badge-tech">ABSA</span>
+              <span class="badge-tech">IndoBERT</span>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4>Produk</h4>
+            <ul>
+              <li><a href="#fitur">Fitur</a></li>
+              <li><a href="dashboard.html">Analisa</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Dukungan</h4>
+            <ul>
+              <li><a href="#">Kontak</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 SudutUlas AI. Dibuat dengan ❤️ untuk UMKM Indonesia.</p>
+          <p>Powered by <strong>Microsoft Azure AI Language</strong></p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
